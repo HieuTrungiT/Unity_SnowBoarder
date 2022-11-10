@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     SurfaceEffector2D surfaceEffector2D;
 
+
+    bool canMove = true;
     void Start()
     {
       rb2d = GetComponent<Rigidbody2D>();
@@ -23,10 +25,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Thay ??i góc ngiêng c?a nhân v?t
-        RotatePlayer();
-        // Thay ??i t?c ?? c?a nhân v?t
-        RespondToBoost();
+        if (canMove)
+        {
+            // Thay ??i góc ngiêng c?a nhân v?t
+            RotatePlayer();
+            // Thay ??i t?c ?? c?a nhân v?t
+            RespondToBoost();
+        }
+     
+    }
+    public void DisableControls()
+    {
+        canMove = false;
     }
     void RespondToBoost()
     {
