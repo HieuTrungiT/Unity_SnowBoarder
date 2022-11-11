@@ -7,11 +7,12 @@ public class FinishLine : MonoBehaviour
     [SerializeField] float delayReloadScene = 0.5f;
     [SerializeField] ParticleSystem finishEffect;
     [SerializeField] AudioClip finishSFX;
-
+   
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            
             finishEffect.Play();
 
             GetComponent<AudioSource>().PlayOneShot(finishSFX);
